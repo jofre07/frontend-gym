@@ -1,59 +1,241 @@
-# FrontendGym
+# 🏋️‍♂️ Frontend Gym – Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+Este proyecto corresponde al **frontend** de una aplicación de gestión para un gimnasio, desarrollada con **Angular** y pensada para integrarse con un backend en **Spring Boot** mediante **JWT**.
 
-## Development server
+El objetivo del proyecto es mantener una **estructura profesional, escalable y fácil de mantener**, siguiendo buenas prácticas usadas en proyectos reales.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
+## 📁 Estructura general del proyecto
+
+```text
+frontend-gym/
+├── src/
+│   ├── app/
+│   ├── assets/
+│   ├── environments/
+│   ├── styles.scss
+│   └── index.html
+├── angular.json
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 📂 src/app
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Aquí vive **toda la lógica de la aplicación Angular**.
 
-```bash
-ng generate component component-name
+```text
+app/
+├── auth/
+├── core/
+├── shared/
+├── app-routing.module.ts
+├── app.component.ts
+└── app.module.ts
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
+## 🔐 auth/
+
+Módulo encargado de **autenticación y autorización**.
+Actualmente contiene el **login**, y a futuro puede incluir:
+
+* Registro
+* Recuperación de contraseña
+
+```text
+auth/
+├── login/
+│   ├── login.component.ts
+│   ├── login.component.html
+│   ├── login.component.scss
+│   └── login.component.spec.ts
+├── auth-routing.module.ts
+└── auth.module.ts
 ```
 
-## Building
+### 📌 ¿Qué va aquí?
 
-To build the project run:
+* Pantallas relacionadas con autenticación
+* Formularios de acceso
+* Flujo de login/logout
 
-```bash
-ng build
+---
+
+## 🧠 core/
+
+Contiene **servicios y configuraciones centrales** que se usan en toda la aplicación.
+
+```text
+core/
+├── services/
+│   └── auth.service.ts
+├── guards/
+│   └── auth.guard.ts
+├── interceptors/
+│   └── auth.interceptor.ts
+└── core.module.ts
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 📌 ¿Para qué sirve core?
 
-## Running unit tests
+* Comunicación con el backend (HTTP)
+* Protección de rutas
+* Manejo del token JWT
+* Funcionalidades globales
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+⚠️ Nada visual va aquí.
 
-```bash
-ng test
+---
+
+## ♻️ shared/
+
+Componentes, modelos y utilidades **reutilizables**.
+
+```text
+shared/
+├── components/
+│   ├── button/
+│   └── input/
+├── models/
+│   └── user.model.ts
+└── shared.module.ts
 ```
 
-## Running end-to-end tests
+### 📌 ¿Qué va aquí?
 
-For end-to-end (e2e) testing, run:
+* Componentes genéricos (botones, inputs)
+* Modelos de datos
+* Pipes y directivas reutilizables
 
-```bash
-ng e2e
+---
+
+## 🌍 app-routing.module.ts
+
+Define las **rutas principales** del proyecto.
+
+Ejemplo:
+
+* `/login`
+* `/dashboard`
+
+También permite **lazy loading** de módulos.
+
+---
+
+## 🧩 app.module.ts
+
+Es el **módulo raíz** de la aplicación.
+
+Aquí se:
+
+* Importan módulos principales
+* Declaran componentes globales
+* Configura la app al iniciar
+
+---
+
+## 📂 src/assets
+
+Archivos estáticos del proyecto.
+
+```text
+assets/
+├── images/
+│   └── gym.jpg
+├── icons/
+└── styles/
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### 📌 ¿Qué va aquí?
 
-## Additional Resources
+* Imágenes
+* Íconos
+* Fuentes
+* Archivos CSS/SCSS compartidos
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 🌎 environments/
+
+Configuración por entorno.
+
+```text
+environments/
+├── environment.ts
+└── environment.prod.ts
+```
+
+### 📌 Uso
+
+* URLs del backend
+* Flags de producción
+
+Ejemplo:
+
+```ts
+apiUrl: 'http://localhost:8080'
+```
+
+---
+
+## 🎨 styles.scss
+
+Archivo global de estilos.
+
+Aquí se definen:
+
+* Colores del sistema
+* Tipografías
+* Estilos generales
+
+---
+
+## 📦 package.json
+
+Define:
+
+* Dependencias
+* Scripts (`ng serve`, `ng build`)
+
+---
+
+## ⚙️ angular.json
+
+Configuración del proyecto Angular:
+
+* Build
+* Assets
+* Estilos
+* Producción
+
+⚠️ Normalmente no se modifica mucho.
+
+---
+
+## 🚀 Buenas prácticas aplicadas
+
+* Arquitectura modular
+* Lazy loading
+* Separación de responsabilidades
+* Escalable para proyectos empresariales
+
+---
+
+## 🔮 Próximos pasos
+
+* Conectar con Spring Boot
+* Implementar JWT
+* Crear dashboard
+* Proteger rutas
+
+---
+
+✍️ **Autor:** Jofre Zambrano
+🎓 Proyecto académico / profesional
+

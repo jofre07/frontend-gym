@@ -1,0 +1,20 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>BOXING-<span>GYM</span></h2>
+    <p>Entrena tu cuerpo. Controla tu progreso.</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+
+      <div class="input-group">
+        <input type="email" formControlName="email" placeholder="Correo electrónico">
+      </div>
+
+      <div class="input-group">
+        <input type="password" formControlName="password" placeholder="Contraseña">
+      </div>
+
+      <button type="submit">INICIAR SESIÓN</button>
+    </form>
+
+  </div>
+</div>
