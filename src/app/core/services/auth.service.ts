@@ -8,12 +8,12 @@ import { Observable, tap } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = " https://boxinggym.mimundojazz.com"; // Ajusta según tu backend
+  private apiUrl = "https://boxinggym.mimundojazz.com"; // Ajusta según tu backend
 
   constructor(private http: HttpClient) {}
 
   // Login: recibe credenciales y guarda tokens
-  login(credentials: { email: string, password: string }): Observable<any> {
+  login(credentials: { username: string, password: string }): Observable<any> {
     return this.http.post(`${this.apiUrl}/auth/login`, credentials).pipe(
       tap((res: any) => {
         localStorage.setItem('accessToken', res.accessToken);
